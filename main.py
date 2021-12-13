@@ -9,13 +9,16 @@ if __name__ == '__main__':
         
         root_calc_element_name="calculation",
         root_filter_element_name="filter",
-        root_metadata_element_name="metadataTreeView",        
+        root_metadata_element_name="metadataTreeView",
+        
         root_folder_element_name="folderItem",
         folder_element_name="folder",
         ref_element_name="ref",
         label_element_name="label",
         identifier_field_name="identifier",
-        description_field_name="screenTip"
+        description_field_name="screenTip",
+        
+        domains_to_exclude=("Enterprise_Performance_Management"
     """
     json_helper = JsonHelper(
         output_excel_file_name="output.xlsx"

@@ -18,7 +18,9 @@ class JsonHelper:
                  ref_element_name="ref",
                  label_element_name="label",
                  identifier_field_name="identifier",
-                 description_field_name="screenTip",):
+                 description_field_name="screenTip",
+
+                 domains_to_exclude=("Enterprise_Performance_Management",)):
         self.input_json_file_name = input_json_file_name
         self.output_json_file_name = output_json_file_name
         self.output_excel_file_name = output_excel_file_name
@@ -32,6 +34,8 @@ class JsonHelper:
         self.label_element_name = label_element_name
         self.identifier_field_name = identifier_field_name
         self.description_field_name = description_field_name
+
+        self.domains_to_exclude = domains_to_exclude
 
         self.folder_dict = {}
         self.folder_with_calc_filter = {}
@@ -83,7 +87,6 @@ class JsonHelper:
             ws = wb.create_sheet(sheet_name)
             ws.title = sheet_name
             calc_filter_list = sheet_dict[sheet_name]["calc_filter_list"]
-            # print(calc_filter_list)
             ws["A1"] = "Folder"
             ws["B1"] = "Items"
             ws["C1"] = "Description"
@@ -184,7 +187,7 @@ class JsonHelper:
         for folder in folder_list:
             label = folder[self.folder_element_name][self.label_element_name]
             for subfolder in folder[self.folder_element_name][self.root_folder_element_name]:
-                if label in ("Enterprise_Performance_Management", ):
+                if label in self.domains_to_exclude:
                     pass
                 else:
                     if subfolder.get(self.ref_element_name):
