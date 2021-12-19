@@ -16,11 +16,39 @@ if __name__ == '__main__':
         ref_element_name="ref",
         label_element_name="label",
         identifier_field_name="identifier",
-        description_field_name="screenTip",
+        hidden_field_name="hidden",
         
-        domains_to_exclude=("Enterprise_Performance_Management"
+        domains_to_exclude=("Enterprise_Performance_Management",),
+        
+        columns_to_output_xlsx = {
+                "A": ("Structure", "identifier", None),
+                "B": ("Items / Filters", "label", None),
+                "C": ("Description", "screenTip", None),
+                "D": ("Hidden away", "hidden", "FALSE")
+        }
+        
+        delete_hidden=False
     """
-    json_helper = JsonHelper(
-        output_excel_file_name="output.xlsx"
+    json_helper_developers = JsonHelper(
+        output_excel_file_name="output_for_developers.xlsx",
+        delete_hidden=False
     )
-    json_helper.write_to_excel()
+    json_helper_developers.write_to_excel()
+
+    json_helper_users = JsonHelper(
+        output_excel_file_name="output_for_users.xlsx",
+        delete_hidden=True,
+    )
+    json_helper_users.write_to_excel()
+
+    json_helper_with_expression = JsonHelper(
+        columns_to_output_xlsx={
+            "A": ("Structure", "identifier", None),
+            "B": ("Items / Filters", "label", None),
+            "C": ("Description", "screenTip", None),
+            "D": ("Expression", "expression", None),
+        },
+        output_excel_file_name="output_with_expression.xlsx",
+        hidden_field_name=None,
+    )
+    json_helper_with_expression.write_to_excel()
