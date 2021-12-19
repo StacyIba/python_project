@@ -3,7 +3,7 @@ from json_helper import JsonHelper
 if __name__ == '__main__':
     """
     Default parameters in JsonHelper(), you can override them
-        input_json_file_name="DM.json",
+        input_json_file_name="DM",
         output_json_file_name="result.json",
         output_excel_file_name="result.xlsx",
         

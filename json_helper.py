@@ -5,7 +5,7 @@ from openpyxl.styles import Font, Alignment
 
 class JsonHelper:
     def __init__(self,
-                 input_json_file_name="DM.json",
+                 input_json_file_name="DM",
                  output_json_file_name="result.json",
                  output_excel_file_name="result.xlsx",
 
