@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     json_helper_with_expression = JsonHelper(
         columns_to_output_xlsx={
-            "A": ("Structure", "identifier1", None),
+            "A": ("Structure", "identifier", None),
             "B": ("Items / Filters", "label", None),
             "C": ("Description / Tooltip", "screenTip", None),
             "D": ("Expression", "expression", None),
