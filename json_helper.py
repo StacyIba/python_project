@@ -30,7 +30,7 @@ class JsonHelper:
             columns_to_output_xlsx = {
                 "A": ("Structure", "identifier", None),
                 "B": ("Items / Filters", "label", None),
-                "C": ("Description", "screenTip", None),
+                "C": ("Description / Tooltip", "screenTip", None),
                 "D": ("Hidden away", "hidden", "FALSE")
             }
         self.input_json_file_name = input_json_file_name

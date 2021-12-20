@@ -23,7 +23,7 @@ if __name__ == '__main__':
         columns_to_output_xlsx = {
                 "A": ("Structure", "identifier", None),
                 "B": ("Items / Filters", "label", None),
-                "C": ("Description", "screenTip", None),
+                "C": ("Description / Tooltip", "screenTip", None),
                 "D": ("Hidden away", "hidden", "FALSE")
         }
         
@@ -45,7 +45,7 @@ if __name__ == '__main__':
         columns_to_output_xlsx={
             "A": ("Structure", "identifier", None),
             "B": ("Items / Filters", "label", None),
-            "C": ("Description", "screenTip", None),
+            "C": ("Description / Tooltip", "screenTip", None),
             "D": ("Expression", "expression", None),
         },
         output_excel_file_name="output_with_expression.xlsx",
