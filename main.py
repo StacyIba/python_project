@@ -21,11 +21,14 @@ if __name__ == '__main__':
         domains_to_exclude=("Enterprise_Performance_Management",),
         
         columns_to_output_xlsx = {
-                "A": ("Structure", "identifier", None),
+                "A": ("Structure", "identifier", None), 
                 "B": ("Items / Filters", "label", None),
                 "C": ("Description / Tooltip", "screenTip", None),
                 "D": ("Hidden away", "hidden", "FALSE")
-        }
+        }  
+        - column_id: (column_title, json_filed_name, value_by_default)
+        ! identifier_field_name must exist in columns_to_output_xlsx and be the first (A column) !
+        ! if hidden_field_name is not None, hidden_field_name must exist in columns_to_output_xlsx !     
         
         delete_hidden=False
     """
@@ -43,7 +46,7 @@ if __name__ == '__main__':
 
     json_helper_with_expression = JsonHelper(
         columns_to_output_xlsx={
-            "A": ("Structure", "identifier", None),
+            "A": ("Structure", "identifier1", None),
             "B": ("Items / Filters", "label", None),
             "C": ("Description / Tooltip", "screenTip", None),
             "D": ("Expression", "expression", None),

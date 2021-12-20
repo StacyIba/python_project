@@ -116,8 +116,12 @@ class JsonHelper:
         wb.remove(wb.active)
         for sheet_name in self.sheet_names:
             hidden_sheet = sheet_name in self.hidden_sheets
-            ws = wb.create_sheet(sheet_name)
-            ws.title = sheet_name
+            if hidden_sheet and not self.delete_hidden:
+                new_sheet_name = sheet_name + " - hidden"
+            else:
+                new_sheet_name = sheet_name
+            ws = wb.create_sheet(new_sheet_name)
+            ws.title = new_sheet_name
             calc_filter_list = sheet_dict[sheet_name]["calc_filter_list"]
             for identifier, (column_name, column, value_by_def) in self.columns_to_output_xlsx.items():
                 ws[f"{identifier}1"] = column_name
@@ -125,7 +129,6 @@ class JsonHelper:
             row = 2
             subfolder_set = set()
 
-            rows_to_remove = []
             for calc_filter in calc_filter_list:
                 for (subfolder, label, hidden), values in calc_filter.items():
                     if len(values) > 0:
